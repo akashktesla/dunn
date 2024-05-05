@@ -1,7 +1,21 @@
+#importing
 from openai import OpenAI
+import hashlib
 
+
+#setting up the client
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
 
+
+#encodes/enccrypts the sentence to sha256 hash
+def encrypt_sha256(sentence):
+  encoded_sen = sentences.encode("utf-8")
+  return hashlib.sha256(encoded_sen).hex_digest()
+
+
+
+
+#generates random sentences for dataset creation 
 def generate_random_sentence_n(n):
     history = [ {"role": "system", "content": "Always generate a random short sentence"} ]
     returns = []
@@ -23,8 +37,13 @@ def generate_random_sentence_n(n):
 
 
 def main():
-  res = generate_random_sentence_n(10)
-  print(res)
+  # res = generate_random_sentence_n(10)
+  # print(res)
+  sent = "akash"
+
+
+
+  
 
 if __name__ == "__main__":
   main()
